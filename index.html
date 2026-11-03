@@ -3,56 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <title>For Aditi 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #2c163a 0%, #100818 100%);
+            font-family: 'Poppins', sans-serif;
             height: 100vh;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
         }
 
-        .card {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 40px 60px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            animation: popUp 1.2s ease-in-out;
-        }
-
-        h1 {
-            color: #d63384;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        p {
-            color: #555;
-            font-size: 1.2rem;
-            margin-top: 0;
-        }
-
-        /* Floating Hearts Styling */
-        .heart {
+        /* Starry & Floating Hearts Background */
+        .background-effects {
             position: absolute;
-            color: #ff4d6d;
-            font-size: 20px;
-            user-select: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
             pointer-events: none;
-            animation: floatUp 4s linear infinite;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 107, 139, 0.4);
+            font-size: 20px;
+            animation: floatUp 6s infinite linear;
         }
 
         @keyframes floatUp {
             0% {
-                transform: translateY(100vh) scale(0.5);
-                opacity: 1;
+                transform: translateY(100vh) scale(0.6);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
             }
             100% {
                 transform: translateY(-10vh) scale(1.2);
@@ -60,57 +66,238 @@
             }
         }
 
-        @keyframes popUp {
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 107, 139, 0.2);
+            animation: cardPulse 4s infinite ease-in-out;
+        }
+
+        @keyframes cardPulse {
+            0%, 100% { border-color: rgba(255, 182, 193, 0.3); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 107, 139, 0.2); }
+            50% { border-color: rgba(255, 107, 139, 0.6); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 107, 139, 0.4); }
+        }
+
+        /* Message Box Styling */
+        .message-box {
+            min-height: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 3.8rem;
+            color: #ff7597;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(255, 117, 151, 0.6);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #fce4ec;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        p.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button Styling */
+        .btn {
+            background: linear-gradient(135deg, #ff6b8b 0%, #ff4b72 100%);
+            border: none;
+            padding: 12px 32px;
+            color: white;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 75, 114, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 8px 22px rgba(255, 75, 114, 0.7);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Glitter Particle Effect */
+        .glitter {
+            position: absolute;
+            pointer-events: none;
+            background: radial-gradient(circle, #fff 0%, #ff8da1 60%, transparent 100%);
+            border-radius: 50%;
+            animation: burst 1s forwards ease-out;
+            z-index: 20;
+        }
+
+        @keyframes burst {
             0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            80% {
-                transform: scale(1.05);
+                transform: translate(0, 0) scale(1);
                 opacity: 1;
             }
             100% {
-                transform: scale(1);
-                opacity: 1;
+                transform: translate(var(--dx), var(--dy)) scale(0);
+                opacity: 0;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>Happy Birthday! 🎉</h1>
-        <p>Wishing the prettiest smile the best day ever. ✨</p>
+    <!-- Dynamic Background Effects -->
+    <div class="background-effects" id="bg-effects"></div>
+
+    <div class="container">
+        <div class="message-box">
+            <h1 id="title">Hey Aditi... ✨</h1>
+            <p id="dynamic-text">I made this little surprise just for you. Click below to open your heart-filled message!</p>
+        </div>
+        <button class="btn" id="next-btn" onclick="nextStep()">Open Message 💖</button>
     </div>
 
     <script>
-        // Function to create floating hearts dynamically
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '❤️';
-            
-            // Random horizontal starting position
-            heart.style.left = Math.random() * 100 + 'vw';
-            
-            // Random animation speed and size
-            const duration = Math.random() * 2 + 3; // between 3s and 5s
-            const size = Math.random() * 20 + 15; // between 15px and 35px
-            
-            heart.style.animationDuration = duration + 's';
-            heart.style.fontSize = size + 'px';
-            
-            document.body.appendChild(heart);
-            
-            // Remove heart after animation finishes
-            setTimeout(() => {
-                heart.remove();
-            }, duration * 1000);
+        // Generate Starry Background & Floating Hearts
+        const bgEffects = document.getElementById('bg-effects');
+        
+        // Stars
+        for (let i = 0; i < 70; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.width = `${Math.random() * 3}px`;
+            star.style.height = star.style.width;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDuration = `${1 + Math.random() * 3}s`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            bgEffects.appendChild(star);
         }
 
-        // Generate a new heart every 300 milliseconds
-        setInterval(createHeart, 300);
-    </script>
+        // Floating Romantic Hearts in Background
+        const heartSymbols = ['💖', '✨', '💕', '💗'];
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.animationDuration = `${4 + Math.random() * 4}s`;
+            heart.style.animationDelay = `${Math.random() * 5}s`;
+            heart.style.fontSize = `${Math.random() * 15 + 15}px`;
+            bgEffects.appendChild(heart);
+        }
 
+        // Steps for the proposal sequence
+        const steps = [
+            {
+                title: "Hey Aditi... ✨",
+                text: "I made this little surprise just for you. Click below to open your heart-filled message!"
+            },
+            {
+                title: "Thank You 🌸",
+                text: "First of all, thank you so much for being such an amazing friend and for always bringing light into my days."
+            },
+            {
+                title: "An Idiot's Apology 😅",
+                text: "And a massive thank you for tolerating this absolute idiot all this time. You genuinely deserve an award for your patience!"
+            },
+            {
+                title: "A Little Secret 💫",
+                text: "Over time, talking to you became my favorite part of the day, and seeing your smile means everything to me."
+            },
+            {
+                title: "My Proposal 💖",
+                text: "Aditi, you are special beyond words. Will you make me the happiest and be mine? ✨"
+            }
+        ];
+
+        let currentStep = 0;
+        const titleEl = document.getElementById('title');
+        const textEl = document.getElementById('dynamic-text');
+        const btnEl = document.getElementById('next-btn');
+
+        // Initialize text appearance
+        setTimeout(() => {
+            textEl.classList.add('show');
+        }, 100);
+
+        function nextStep(event) {
+            createGlitterExplosion(event);
+            
+            currentStep++;
+            
+            // Fade out current text
+            textEl.classList.remove('show');
+
+            setTimeout(() => {
+                if (currentStep < steps.length) {
+                    titleEl.innerText = steps[currentStep].title;
+                    textEl.innerText = steps[currentStep].text;
+                    
+                    if (currentStep === steps.length - 1) {
+                        btnEl.innerText = "Yes! ❤️";
+                    }
+                } else {
+                    titleEl.innerText = "Forever Yours! 🥰";
+                    textEl.innerText = "You just made me the luckiest person alive, Aditi!";
+                    btnEl.style.display = "none";
+                }
+                // Fade in new text
+                textEl.classList.add('show');
+            }, 400);
+        }
+
+        // Glitter Particle Effect Generator on Click
+        function createGlitterExplosion(e) {
+            const rect = btnEl.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+
+            for (let i = 0; i < 35; i++) {
+                const glitter = document.createElement('div');
+                glitter.classList.add('glitter');
+                
+                const size = Math.random() * 9 + 4;
+                glitter.style.width = `${size}px`;
+                glitter.style.height = `${size}px`;
+                glitter.style.left = `${x}px`;
+                glitter.style.top = `${y}px`;
+
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 140 + 50;
+                const dx = Math.cos(angle) * distance;
+                const dy = Math.sin(angle) * distance;
+
+                glitter.style.setProperty('--dx', `${dx}px`);
+                glitter.style.setProperty('--dy', `${dy}px`);
+
+                document.body.appendChild(glitter);
+
+                setTimeout(() => {
+                    glitter.remove();
+                }, 1000);
+            }
+        }
+    </script>
 </body>
 </html>
