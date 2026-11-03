@@ -95,6 +95,7 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 25px;
+            position: relative;
         }
 
         h1 {
@@ -105,18 +106,19 @@
             text-shadow: 0 0 15px rgba(255, 117, 151, 0.6);
         }
 
+        /* Pop-up and scale animation for text */
         p {
             font-size: 1.1rem;
             line-height: 1.6;
             color: #fce4ec;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.5) translateY(20px);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         p.show {
             opacity: 1;
-            transform: translateY(0);
+            transform: scale(1) translateY(0);
         }
 
         /* Button Styling */
@@ -170,7 +172,7 @@
     <div class="background-effects" id="bg-effects"></div>
 
     <div class="container">
-        <div class="message-box">
+        <div class="message-box" id="msg-box">
             <h1 id="title">Hey Aditi... ✨</h1>
             <p id="dynamic-text">I made this little surprise just for you. Click below to open your heart-filled message!</p>
         </div>
@@ -235,15 +237,14 @@
         const titleEl = document.getElementById('title');
         const textEl = document.getElementById('dynamic-text');
         const btnEl = document.getElementById('next-btn');
+        const msgBoxEl = document.getElementById('msg-box');
 
-        // Initialize text appearance
+        // Initialize text appearance on load
         setTimeout(() => {
             textEl.classList.add('show');
         }, 100);
 
-        function nextStep(event) {
-            createGlitterExplosion(event);
-            
+        function nextStep() {
             currentStep++;
             
             // Fade out current text
@@ -262,29 +263,33 @@
                     textEl.innerText = "You just made me the luckiest person alive, Aditi!";
                     btnEl.style.display = "none";
                 }
-                // Fade in new text
+
+                // Pop-up and show new text
                 textEl.classList.add('show');
+
+                // Trigger glitter and sparkles burst directly from the message box!
+                createGlitterBurst();
             }, 400);
         }
 
-        // Glitter Particle Effect Generator on Click
-        function createGlitterExplosion(e) {
-            const rect = btnEl.getBoundingClientRect();
+        // Glitter & Sparkles Burst Generator from the Message Box
+        function createGlitterBurst() {
+            const rect = msgBoxEl.getBoundingClientRect();
             const x = rect.left + rect.width / 2;
             const y = rect.top + rect.height / 2;
 
-            for (let i = 0; i < 35; i++) {
+            for (let i = 0; i < 45; i++) {
                 const glitter = document.createElement('div');
                 glitter.classList.add('glitter');
                 
-                const size = Math.random() * 9 + 4;
+                const size = Math.random() * 10 + 4;
                 glitter.style.width = `${size}px`;
                 glitter.style.height = `${size}px`;
                 glitter.style.left = `${x}px`;
                 glitter.style.top = `${y}px`;
 
                 const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 140 + 50;
+                const distance = Math.random() * 160 + 40;
                 const dx = Math.cos(angle) * distance;
                 const dy = Math.sin(angle) * distance;
 
@@ -301,3 +306,4 @@
     </script>
 </body>
 </html>
+
