@@ -23,7 +23,7 @@
             color: #fff;
         }
 
-        /* Romantic Dynamic Background Animation */
+        /* Romantic Starry & Floating Hearts Background */
         .background-effects {
             position: absolute;
             width: 100%;
@@ -31,13 +31,6 @@
             overflow: hidden;
             z-index: 1;
             pointer-events: none;
-            background: radial-gradient(circle, rgba(44, 22, 58, 1) 0%, rgba(16, 8, 24, 1) 100%);
-            animation: bgPulse 8s infinite alternate ease-in-out;
-        }
-
-        @keyframes bgPulse {
-            0% { filter: brightness(1); }
-            100% { filter: brightness(1.3); }
         }
 
         .star {
@@ -49,50 +42,31 @@
 
         @keyframes twinkle {
             0%, 100% { opacity: 0.2; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.3); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         .floating-heart {
             position: absolute;
-            color: rgba(255, 107, 139, 0.5);
-            font-size: 24px;
-            animation: floatUp 5s infinite linear;
+            color: rgba(255, 107, 139, 0.4);
+            font-size: 20px;
+            animation: floatUp 6s infinite linear;
         }
 
         @keyframes floatUp {
             0% {
-                transform: translateY(105vh) scale(0.5) rotate(0deg);
+                transform: translateY(100vh) scale(0.6);
                 opacity: 0;
             }
             50% {
-                opacity: 0.9;
+                opacity: 0.8;
             }
             100% {
-                transform: translateY(-10vh) scale(1.3) rotate(360deg);
+                transform: translateY(-10vh) scale(1.2);
                 opacity: 0;
             }
         }
 
-        /* Shock / Flash Intro Overlay */
-        .shock-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            z-index: 100;
-            opacity: 1;
-            pointer-events: none;
-            animation: flashIntro 0.8s forwards ease-out;
-        }
-
-        @keyframes flashIntro {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        /* Container with Shock-Wave Entrance */
+        /* Container Card */
         .container {
             position: relative;
             z-index: 10;
@@ -100,26 +74,14 @@
             width: 90%;
             max-width: 500px;
             padding: 35px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.07);
             backdrop-filter: blur(15px);
-            border: 1.5px solid rgba(255, 182, 193, 0.4);
+            border: 1px solid rgba(255, 182, 193, 0.3);
             border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 107, 139, 0.4);
-            animation: containerShockIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, cardPulse 4s infinite ease-in-out;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 107, 139, 0.2);
         }
 
-        @keyframes containerShockIn {
-            0% { transform: scale(0.2) rotate(-10deg); opacity: 0; }
-            70% { transform: scale(1.05) rotate(2deg); opacity: 1; }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-
-        @keyframes cardPulse {
-            0%, 100% { border-color: rgba(255, 182, 193, 0.3); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 107, 139, 0.2); }
-            50% { border-color: rgba(255, 107, 139, 0.8); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 107, 139, 0.6); }
-        }
-
-        /* Message Box with Zoom-Pop & Dissapear Animation */
+        /* Message Box with Shock/Zoom Pop Animation */
         .message-box {
             min-height: 140px;
             display: flex;
@@ -130,25 +92,22 @@
             position: relative;
         }
 
-        .pop-zoom-animation {
-            animation: zoomPopBox 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        .pop-animation {
+            animation: shockZoomPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
-        @keyframes zoomPopBox {
+        @keyframes shockZoomPop {
             0% {
-                transform: scale(0.1) translateY(30px);
+                transform: scale(0.2) rotate(-5deg);
                 opacity: 0;
-                filter: blur(10px);
             }
-            60% {
-                transform: scale(1.1) translateY(-5px);
+            70% {
+                transform: scale(1.1) rotate(2deg);
                 opacity: 1;
-                filter: blur(0px);
             }
             100% {
-                transform: scale(1) translateY(0);
+                transform: scale(1) rotate(0deg);
                 opacity: 1;
-                filter: blur(0px);
             }
         }
 
@@ -157,11 +116,11 @@
             font-size: 3.8rem;
             color: #ff7597;
             margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(255, 117, 151, 0.8);
+            text-shadow: 0 0 15px rgba(255, 117, 151, 0.6);
         }
 
         p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             color: #fce4ec;
         }
@@ -181,8 +140,8 @@
         }
 
         .btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 25px rgba(255, 75, 114, 0.8);
+            transform: scale(1.06);
+            box-shadow: 0 8px 22px rgba(255, 75, 114, 0.7);
         }
 
         .btn:active {
@@ -195,13 +154,13 @@
             pointer-events: none;
             background: radial-gradient(circle, #fff 0%, #ff8da1 60%, transparent 100%);
             border-radius: 50%;
-            animation: burst 1.2s forwards ease-out;
+            animation: burst 1s forwards ease-out;
             z-index: 20;
         }
 
         @keyframes burst {
             0% {
-                transform: translate(0, 0) scale(1.2);
+                transform: translate(0, 0) scale(1);
                 opacity: 1;
             }
             100% {
@@ -213,74 +172,71 @@
 </head>
 <body>
 
-    <!-- Shock Flash Effect on Open -->
-    <div class="shock-overlay"></div>
-
-    <!-- Dynamic Background Effects -->
+    <!-- Romantic Background Animation Container -->
     <div class="background-effects" id="bg-effects"></div>
 
-    <div class="container" id="main-container">
+    <div class="container">
         <!-- Message Box -->
-        <div class="message-box pop-zoom-animation" id="msg-box">
+        <div class="message-box pop-animation" id="msg-box">
             <h1 id="title">Hey Aditi... ✨</h1>
-            <p id="dynamic-text">Open this surprise with your whole heart! Click below to begin... 💖</p>
+            <p id="dynamic-text">I prepared a little surprise to shock you! Click below to open your heart-filled message.</p>
         </div>
         <button class="btn" id="next-btn" onclick="nextStep()">Open Message 💖</button>
     </div>
 
     <script>
-        // Generate Starry Background & Floating Hearts
+        // Generate Starry Background
         const bgEffects = document.getElementById('bg-effects');
-        
-        for (let i = 0; i < 80; i++) {
+        for (let i = 0; i < 70; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
-            star.style.width = `${Math.random() * 3.5}px`;
+            star.style.width = `${Math.random() * 3}px`;
             star.style.height = star.style.width;
             star.style.top = `${Math.random() * 100}%`;
             star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDuration = `${1 + Math.random() * 2.5}s`;
+            star.style.animationDuration = `${1 + Math.random() * 3}s`;
             star.style.animationDelay = `${Math.random() * 2}s`;
             bgEffects.appendChild(star);
         }
 
-        const heartSymbols = ['💖', '✨', '💕', '💗', '🌟'];
-        for (let i = 0; i < 20; i++) {
+        // Generate Floating Romantic Hearts Background
+        const heartSymbols = ['💖', '✨', '💕', '💗'];
+        for (let i = 0; i < 18; i++) {
             const heart = document.createElement('div');
             heart.classList.add('floating-heart');
             heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
             heart.style.left = `${Math.random() * 100}%`;
-            heart.style.animationDuration = `${3.5 + Math.random() * 3}s`;
-            heart.style.animationDelay = `${Math.random() * 4}s`;
-            heart.style.fontSize = `${Math.random() * 18 + 16}px`;
+            heart.style.animationDuration = `${4 + Math.random() * 4}s`;
+            heart.style.animationDelay = `${Math.random() * 5}s`;
+            heart.style.fontSize = `${Math.random() * 15 + 15}px`;
             bgEffects.appendChild(heart);
         }
 
-        // Steps for the proposal sequence including your exact points
+        // Message Sequence
         const steps = [
             {
                 title: "Hey Aditi... ✨",
-                text: "Open this surprise with your whole heart! Click below to begin... 💖"
+                text: "I prepared a little surprise to shock you! Click below to open your heart-filled message."
             },
             {
                 title: "Thank You 🌸",
-                text: "First of all, thank you so much for your wonderful friendship and for always bringing so much light into my life."
+                text: "First of all, thank you so much for your wonderful friendship and for always brightening up my days."
             },
             {
                 title: "An Idiot's Apology 😅",
-                text: "And a massive thank you for tolerating this absolute idiot all this time. You seriously deserve an award for your patience!"
+                text: "And a massive thank you for tolerating this absolute idiot all this time. You genuinely deserve an award for your patience!"
             },
             {
                 title: "A Little Secret 💫",
-                text: "Every single conversation with you is the highlight of my day, and seeing your smile makes everything worthwhile."
+                text: "Every conversation with you is the highlight of my day, and your smile means everything to me."
             },
             {
                 title: "My Proposal 💖",
-                text: "Aditi, you mean the absolute world to me. Will you make me the happiest and be mine? ✨"
+                text: "Aditi, you mean the world to me. Will you make me the happiest and be mine? ✨"
             },
             {
                 title: "I Love You, Aditi ❤️",
-                text: "You just made me the luckiest person alive! Closing this magical window now..."
+                text: "You just made me the happiest person alive! Returning you back to WhatsApp now..."
             }
         ];
 
@@ -289,7 +245,6 @@
         const textEl = document.getElementById('dynamic-text');
         const btnEl = document.getElementById('next-btn');
         const msgBoxEl = document.getElementById('msg-box');
-        const containerEl = document.getElementById('main-container');
 
         function nextStep() {
             currentStep++;
@@ -299,33 +254,22 @@
                 textEl.innerText = steps[currentStep].text;
                 
                 if (currentStep === steps.length - 1) {
-                    btnEl.style.display = "none"; // Hide button on the final ending message
+                    btnEl.style.display = "none"; // Hide button on final screen
+                    
+                    // Automatically redirect back to WhatsApp after showing the final love message for 4 seconds
+                    setTimeout(() => {
+                        window.location.href = "https://wa.me/";
+                    }, 4000);
                 }
             }
 
-            // Force restart the zoom-pop animation on the box
-            msgBoxEl.classList.remove('pop-zoom-animation');
-            void msgBoxEl.offsetWidth; 
-            msgBoxEl.classList.add('pop-zoom-animation');
+            // Trigger shock zoom/pop animation on the message box
+            msgBoxEl.classList.remove('pop-animation');
+            void msgBoxEl.offsetWidth; // Force CSS reflow
+            msgBoxEl.classList.add('pop-animation');
 
-            // Trigger explosive glitter burst from the box
+            // Trigger explosive glitter & sparkle burst from the box
             createGlitterBurst();
-
-            // If it's the final ending message, wait 4 seconds and auto-close / redirect the window
-            if (currentStep === steps.length - 1) {
-                setTimeout(() => {
-                    // Dramatic fade out before closing
-                    containerEl.style.transition = "all 1s ease";
-                    containerEl.style.transform = "scale(0) rotate(15deg)";
-                    containerEl.style.opacity = "0";
-                    
-                    setTimeout(() => {
-                        window.close();
-                        // Fallback if browser blocks window.close()
-                        window.location.href = "about:blank";
-                    }, 1000);
-                }, 4000);
-            }
         }
 
         function createGlitterBurst() {
@@ -333,18 +277,18 @@
             const x = rect.left + rect.width / 2;
             const y = rect.top + rect.height / 2;
 
-            for (let i = 0; i < 65; i++) {
+            for (let i = 0; i < 60; i++) {
                 const glitter = document.createElement('div');
                 glitter.classList.add('glitter');
                 
-                const size = Math.random() * 12 + 4;
+                const size = Math.random() * 10 + 4;
                 glitter.style.width = `${size}px`;
                 glitter.style.height = `${size}px`;
                 glitter.style.left = `${x}px`;
                 glitter.style.top = `${y}px`;
 
                 const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 200 + 50;
+                const distance = Math.random() * 180 + 40;
                 const dx = Math.cos(angle) * distance;
                 const dy = Math.sin(angle) * distance;
 
@@ -355,7 +299,7 @@
 
                 setTimeout(() => {
                     glitter.remove();
-                }, 1200);
+                }, 1000);
             }
         }
     </script>
