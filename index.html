@@ -87,7 +87,7 @@
             50% { border-color: rgba(255, 107, 139, 0.6); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 107, 139, 0.4); }
         }
 
-        /* Message Box Styling */
+        /* Message Box Styling with Pop Animation */
         .message-box {
             min-height: 130px;
             display: flex;
@@ -96,6 +96,14 @@
             align-items: center;
             margin-bottom: 25px;
             position: relative;
+            transform: scale(0.7);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .message-box.pop-in {
+            transform: scale(1);
+            opacity: 1;
         }
 
         h1 {
@@ -106,19 +114,10 @@
             text-shadow: 0 0 15px rgba(255, 117, 151, 0.6);
         }
 
-        /* Pop-up and scale animation for text */
         p {
             font-size: 1.1rem;
             line-height: 1.6;
             color: #fce4ec;
-            opacity: 0;
-            transform: scale(0.5) translateY(20px);
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        p.show {
-            opacity: 1;
-            transform: scale(1) translateY(0);
         }
 
         /* Button Styling */
@@ -172,7 +171,8 @@
     <div class="background-effects" id="bg-effects"></div>
 
     <div class="container">
-        <div class="message-box" id="msg-box">
+        <!-- Message Box that pops in -->
+        <div class="message-box pop-in" id="msg-box">
             <h1 id="title">Hey Aditi... ✨</h1>
             <p id="dynamic-text">I made this little surprise just for you. Click below to open your heart-filled message!</p>
         </div>
@@ -209,7 +209,7 @@
             bgEffects.appendChild(heart);
         }
 
-        // Steps for the proposal sequence
+        // Steps for the proposal sequence including your specific points
         const steps = [
             {
                 title: "Hey Aditi... ✨",
@@ -217,19 +217,19 @@
             },
             {
                 title: "Thank You 🌸",
-                text: "First of all, thank you so much for being such an amazing friend and for always bringing light into my days."
+                text: "First of all, thank you so much for your wonderful friendship and for always bringing so much joy into my life."
             },
             {
                 title: "An Idiot's Apology 😅",
-                text: "And a massive thank you for tolerating this absolute idiot all this time. You genuinely deserve an award for your patience!"
+                text: "And a massive thank you for tolerating this absolute idiot all this time. You seriously deserve an award for your patience!"
             },
             {
                 title: "A Little Secret 💫",
-                text: "Over time, talking to you became my favorite part of the day, and seeing your smile means everything to me."
+                text: "Every conversation with you is the highlight of my day, and seeing your smile makes everything worthwhile."
             },
             {
                 title: "My Proposal 💖",
-                text: "Aditi, you are special beyond words. Will you make me the happiest and be mine? ✨"
+                text: "Aditi, you mean the absolute world to me. Will you make me the happiest and be mine? ✨"
             }
         ];
 
@@ -239,16 +239,11 @@
         const btnEl = document.getElementById('next-btn');
         const msgBoxEl = document.getElementById('msg-box');
 
-        // Initialize text appearance on load
-        setTimeout(() => {
-            textEl.classList.add('show');
-        }, 100);
-
         function nextStep() {
             currentStep++;
             
-            // Fade out current text
-            textEl.classList.remove('show');
+            // Remove pop-in animation class to reset it
+            msgBoxEl.classList.remove('pop-in');
 
             setTimeout(() => {
                 if (currentStep < steps.length) {
@@ -264,12 +259,12 @@
                     btnEl.style.display = "none";
                 }
 
-                // Pop-up and show new text
-                textEl.classList.add('show');
+                // Trigger pop-in animation on the message box
+                msgBoxEl.classList.add('pop-in');
 
-                // Trigger glitter and sparkles burst directly from the message box!
+                // Trigger a stunning burst of glitter directly from the message box
                 createGlitterBurst();
-            }, 400);
+            }, 150);
         }
 
         // Glitter & Sparkles Burst Generator from the Message Box
@@ -278,7 +273,7 @@
             const x = rect.left + rect.width / 2;
             const y = rect.top + rect.height / 2;
 
-            for (let i = 0; i < 45; i++) {
+            for (let i = 0; i < 50; i++) {
                 const glitter = document.createElement('div');
                 glitter.classList.add('glitter');
                 
@@ -289,7 +284,7 @@
                 glitter.style.top = `${y}px`;
 
                 const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 160 + 40;
+                const distance = Math.random() * 170 + 40;
                 const dx = Math.cos(angle) * distance;
                 const dy = Math.sin(angle) * distance;
 
@@ -306,4 +301,3 @@
     </script>
 </body>
 </html>
-
