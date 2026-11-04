@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Special Surprise For Aditi ❤️</title>
+  <title>For Aditi ❤️</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@300;500;700&display=swap');
 
@@ -39,7 +39,7 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 650px;
+      max-width: 600px;
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -113,12 +113,11 @@
     .btn-container {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
       margin-top: 25px;
       position: relative;
-      min-height: 80px;
+      min-height: 70px;
       width: 100%;
-      align-items: center;
     }
 
     .dev-btn {
@@ -143,15 +142,15 @@
       box-shadow: 0 12px 30px rgba(255, 117, 140, 0.8);
     }
 
-    /* Proposal Step Layouts (Strictly Side by Side) */
+    /* Proposal Step Layouts: Side-by-Side */
     .proposal-buttons {
       display: flex;
       width: 100%;
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 30px;
       position: relative;
-      height: 80px;
+      height: 70px;
     }
 
     #yesBtn {
@@ -160,7 +159,6 @@
       box-shadow: 0 0 20px rgba(0, 176, 155, 0.6);
       z-index: 10;
       animation: ultraShine 1.2s infinite alternate;
-      position: relative;
     }
 
     @keyframes ultraShine {
@@ -282,7 +280,7 @@
       { text: "Thank you for giving me your wonderful friendship. 💖" },
       { text: "And thank you for constantly tolerating this absolute idiot every single day! 😜" },
       { text: "So at last... Will you be mine, Aditi? 💍", isProposal: true },
-      { text: "I love you, Aditi! 🥰❤️" }
+      { text: "I love you, Aditi ❤️" }
     ];
 
     let currentStep = 0;
@@ -335,3 +333,32 @@
             currentStep = storyline.length - 1;
             renderStep();
           };
+
+          const noBtn = document.createElement('button');
+          noBtn.className = 'dev-btn';
+          noBtn.id = 'noBtn';
+          noBtn.textContent = 'No 😜';
+
+          // Side-by-side dodging logic: instantly jumps away when hovered or touched
+          const moveNoButton = (e) => {
+            e.preventDefault();
+            const randomX = (Math.random() - 0.5) * 300;
+            const randomY = (Math.random() - 0.5) * 180;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+          };
+
+          noBtn.addEventListener('mouseover', moveNoButton);
+          noBtn.addEventListener('touchstart', moveNoButton);
+          noBtn.addEventListener('click', moveNoButton);
+
+          proposalWrapper.appendChild(yesBtn);
+          proposalWrapper.appendChild(noBtn);
+          actionArea.appendChild(proposalWrapper);
+        }
+
+        mainCard.classList.add('active');
+      }, 400);
+    }
+  </script>
+</body>
+</html>
