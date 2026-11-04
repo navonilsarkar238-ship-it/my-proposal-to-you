@@ -1,329 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Aditi 💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Aditi ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', Arial, sans-serif;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      transition: background 1s ease;
+    }
 
-        body {
-            background: radial-gradient(circle at center, #2c163a 0%, #100818 100%);
-            font-family: 'Poppins', sans-serif;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-        }
+    /* Message Box Container */
+    .message-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 450px;
+      width: 90%;
+      position: relative;
+      transform: scale(0);
+      animation: zoomInBurst 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
 
-        /* Romantic Dynamic Background Animation */
-        .background-effects {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            pointer-events: none;
-        }
+    @keyframes zoomInBurst {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      70% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
 
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite ease-in-out;
-        }
+    h2 {
+      color: #d63384;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+      margin-top: 20px;
+    }
 
-        .floating-heart {
-            position: absolute;
-            color: rgba(255, 107, 139, 0.4);
-            font-size: 20px;
-            animation: floatUp 5s infinite linear;
-        }
+    button {
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(100vh) scale(0.6) rotate(0deg);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.9;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.3) rotate(360deg);
-                opacity: 0;
-            }
-        }
+    #nextBtn {
+      background-color: #ff4b5c;
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 75, 92, 0.4);
+    }
 
-        /* Main Container with Shock Pulse Animation */
-        .container {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            width: 90%;
-            max-width: 500px;
-            padding: 35px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 182, 193, 0.4);
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 107, 139, 0.3);
-            animation: shockPulse 3s infinite ease-in-out;
-        }
+    #nextBtn:hover {
+      transform: scale(1.05);
+    }
 
-        @keyframes shockPulse {
-            0%, 100% { transform: scale(1); border-color: rgba(255, 182, 193, 0.4); }
-            50% { transform: scale(1.02); border-color: rgba(255, 107, 139, 0.8); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 75, 114, 0.6); }
-        }
+    #yesBtn {
+      background-color: #2a9d8f;
+      color: white;
+      display: none;
+    }
 
-        /* Message Box with Zoom-Pop Animation */
-        .message-box {
-            min-height: 140px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 25px;
-            position: relative;
-        }
+    #yesBtn.shine {
+      animation: shinePulse 1.2s infinite alternate;
+    }
 
-        .shock-pop {
-            animation: shockPopAnimation 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
+    @keyframes shinePulse {
+      0% {
+        box-shadow: 0 0 5px #2a9d8f, 0 0 10px #2a9d8f, 0 0 15px #2a9d8f;
+        transform: scale(1);
+      }
+      100% {
+        box-shadow: 0 0 15px #2a9d8f, 0 0 25px #2a9d8f, 0 0 35px #2a9d8f;
+        transform: scale(1.08);
+      }
+    }
 
-        @keyframes shockPopAnimation {
-            0% {
-                transform: scale(0.1) rotate(-10deg);
-                opacity: 0;
-                filter: blur(10px);
-            }
-            70% {
-                transform: scale(1.1) rotate(2deg);
-                opacity: 1;
-                filter: blur(0px);
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-                filter: blur(0px);
-            }
-        }
+    #noBtn {
+      background-color: #6c757d;
+      color: white;
+      display: none;
+      position: absolute;
+    }
 
-        h1 {
-            font-family: 'Sacramento', cursive;
-            font-size: 3.8rem;
-            color: #ff7597;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(255, 117, 151, 0.8);
-        }
+    /* Sparkle particle effect */
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      border-radius: 50%;
+      animation: burst 0.8s ease-out forwards;
+      pointer-events: none;
+    }
 
-        p {
-            font-size: 1.15rem;
-            line-height: 1.6;
-            color: #fce4ec;
-        }
-
-        /* Button Styling */
-        .btn {
-            background: linear-gradient(135deg, #ff6b8b 0%, #ff4b72 100%);
-            border: none;
-            padding: 12px 32px;
-            color: white;
-            font-size: 1.05rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 75, 114, 0.5);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 25px rgba(255, 75, 114, 0.8);
-        }
-
-        .btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Exploding Glitter & Sparkles Effect */
-        .glitter {
-            position: absolute;
-            pointer-events: none;
-            background: radial-gradient(circle, #fff 0%, #ff8da1 60%, transparent 100%);
-            border-radius: 50%;
-            animation: burst 1.2s forwards ease-out;
-            z-index: 20;
-        }
-
-        @keyframes burst {
-            0% {
-                transform: translate(0, 0) scale(1.5);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(var(--dx), var(--dy)) scale(0);
-                opacity: 0;
-            }
-        }
-    </style>
+    @keyframes burst {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--dx), var(--dy)) scale(0);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Background Animation Layer -->
-    <div class="background-effects" id="bg-effects"></div>
+  <div id="cardContainer"></div>
 
-    <div class="container" id="main-container">
-        <!-- Message Box -->
-        <div class="message-box shock-pop" id="msg-box">
-            <h1 id="title">Hey Aditi... ✨</h1>
-            <p id="dynamic-text">I made this little surprise just for you. Click below to open your heart-filled message!</p>
-        </div>
-        <button class="btn" id="next-btn" onclick="nextStep()">Open Message 💖</button>
-    </div>
+  <script>
+    const steps = [
+      {
+        text: "From the very start, having you in my life has meant the world to me. ✨",
+        bg: "linear-gradient(135deg, #ff9a9e, #fad0c4)"
+      },
+      {
+        text: "Thank you for giving me your friendship... 💖",
+        bg: "linear-gradient(135deg, #a1c4fd, #c2e9fb)"
+      },
+      {
+        text: "...and thank you for tolerating this idiot every single day! 😜",
+        bg: "linear-gradient(135deg, #fbc531, #e84118)"
+      },
+      {
+        text: "Will you be mine? 💍",
+        bg: "linear-gradient(135deg, #ff758c, #ff7eb3)",
+        isProposal: true
+      },
+      {
+        text: "Yay! Best decision ever! I love you, Aditi! 🥰🎉",
+        bg: "linear-gradient(135deg, #11998e, #38ef7d)"
+      }
+    ];
 
-    <script>
-        // Starry Background Generator
-        const bgEffects = document.getElementById('bg-effects');
-        for (let i = 0; i < 80; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.width = `${Math.random() * 3}px`;
-            star.style.height = star.style.width;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDuration = `${1 + Math.random() * 3}s`;
-            star.style.animationDelay = `${Math.random() * 2}s`;
-            bgEffects.appendChild(star);
-        }
+    let currentStep = 0;
+    const cardContainer = document.getElementById('cardContainer');
 
-        // Floating Romantic Hearts Generator
-        const heartSymbols = ['💖', '✨', '💕', '💗', '⭐'];
-        for (let i = 0; i < 18; i++) {
-            const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-            heart.style.left = `${Math.random() * 100}%`;
-            heart.style.animationDuration = `${3.5 + Math.random() * 3}s`;
-            heart.style.animationDelay = `${Math.random() * 4}s`;
-            heart.style.fontSize = `${Math.random() * 18 + 14}px`;
-            bgEffects.appendChild(heart);
-        }
+    function createSparkles(box) {
+      const rect = box.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
 
-        // Sequence of Messages including your specific lines
-        const steps = [
-            {
-                title: "Hey Aditi... ✨",
-                text: "I made this little surprise just for you. Click below to open your heart-filled message!"
-            },
-            {
-                title: "Thank You 🌸",
-                text: "First of all, thank you so much for your wonderful friendship and for always bringing so much brightness into my life."
-            },
-            {
-                title: "An Idiot's Apology 😅",
-                text: "And a massive thank you for tolerating this absolute idiot all this time. You genuinely deserve a medal for your patience!"
-            },
-            {
-                title: "A Little Secret 💫",
-                text: "Every conversation with you is the best part of my day, and seeing you smile means everything to me."
-            },
-            {
-                title: "My Proposal 💖",
-                text: "Aditi, you mean the absolute world to me. Will you make me the happiest and be mine? ✨"
-            }
-        ];
+      for (let i = 0; i < 20; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 80 + Math.random() * 80;
+        const dx = Math.cos(angle) * distance;
+        const dy = Math.sin(angle) * distance;
 
-        let currentStep = 0;
-        const titleEl = document.getElementById('title');
-        const textEl = document.getElementById('dynamic-text');
-        const btnEl = document.getElementById('next-btn');
-        const msgBoxEl = document.getElementById('msg-box');
-        const containerEl = document.getElementById('main-container');
+        sparkle.style.setProperty('--dx', `${dx}px`);
+        sparkle.style.setProperty('--dy', `${dy}px`);
+        sparkle.style.left = `${centerX}px`;
+        sparkle.style.top = `${centerY}px`;
 
-        function nextStep() {
-            currentStep++;
+        box.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 800);
+      }
+    }
 
-            if (currentStep < steps.length) {
-                titleEl.innerText = steps[currentStep].title;
-                textEl.innerText = steps[currentStep].text;
-                
-                if (currentStep === steps.length - 1) {
-                    btnEl.innerText = "Yes! ❤️";
-                }
-            } else {
-                // Final Ending State
-                titleEl.innerText = "I love Aditi ❤️";
-                textEl.innerText = "Forever and always! 🥰";
-                btnEl.style.display = "none";
+    function renderStep() {
+      cardContainer.innerHTML = '';
+      const step = steps[currentStep];
 
-                // Extra massive shock burst on the final screen
-                createGlitterBurst();
+      // Change background animation
+      document.body.style.background = step.bg;
 
-                // Automatically close or go back after a short romantic pause (3.5 seconds)
-                setTimeout(() => {
-                    // Attempts to close or redirect back to the previous window/chat tab
-                    window.close();
-                    
-                    // Fallback redirect if the browser blocks automatic closing script permissions
-                    setTimeout(() => {
-                        window.location.href = "about:blank";
-                    }, 500);
-                }, 3500);
-                return;
-            }
+      // Create new message box
+      const box = document.createElement('div');
+      box.className = 'message-box';
 
-            // Trigger Shock Pop-In Animation on Box
-            msgBoxEl.classList.remove('shock-pop');
-            void msgBoxEl.offsetWidth; // Force Reflow
-            msgBoxEl.classList.add('shock-pop');
+      const heading = document.createElement('h2');
+      heading.textContent = step.text;
+      box.appendChild(heading);
 
-            // Trigger Massive Glitter & Sparkle Explosion Burst
-            createGlitterBurst();
-        }
+      const btnContainer = document.createElement('div');
+      btnContainer.className = 'btn-container';
 
-        // Exploding Glitter & Sparkles Burst Function
-        function createGlitterBurst() {
-            const rect = containerEl.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
+      if (!step.isProposal && currentStep < steps.length - 1) {
+        const nextBtn = document.createElement('button');
+        nextBtn.id = 'nextBtn';
+        nextBtn.textContent = 'Next ❤️';
+        nextBtn.onclick = () => {
+          currentStep++;
+          renderStep();
+        };
+        btnContainer.appendChild(nextBtn);
+      } else if (step.isProposal) {
+        const yesBtn = document.createElement('button');
+        yesBtn.id = 'yesBtn';
+        yesBtn.textContent = 'YES! 🥰';
+        yesBtn.style.display = 'block';
+        yesBtn.classList.add('shine');
+        yesBtn.onclick = () => {
+          currentStep = steps.length - 1;
+          renderStep();
+        };
 
-            for (let i = 0; i < 70; i++) {
-                const glitter = document.createElement('div');
-                glitter.classList.add('glitter');
-                
-                const size = Math.random() * 12 + 4;
-                glitter.style.width = `${size}px`;
-                glitter.style.height = `${size}px`;
-                glitter.style.left = `${x}px`;
-                glitter.style.top = `${y}px`;
+        const noBtn = document.createElement('button');
+        noBtn.id = 'noBtn';
+        noBtn.textContent = 'No 😜';
+        noBtn.style.display = 'block';
 
-                const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 200 + 50;
-                const dx = Math.cos(angle) * distance;
-                const dy = Math.sin(angle) * distance;
+        // Make No button slide/run away on hover or touch
+        const moveNoButton = () => {
+          const x = (Math.random() - 0.5) * 200;
+          const y = (Math.random() - 0.5) * 150;
+          noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        };
 
-                glitter.style.setProperty('--dx', `${dx}px`);
-                glitter.style.setProperty('--dy', `${dy}px`);
+        noBtn.addEventListener('mouseover', moveNoButton);
+        noBtn.addEventListener('touchstart', moveNoButton);
 
-                document.body.appendChild(glitter);
+        btnContainer.appendChild(yesBtn);
+        btnContainer.appendChild(noBtn);
+      }
 
-                setTimeout(() => {
-                    glitter.remove();
-                }, 1200);
-            }
-        }
-    </script>
+      box.appendChild(btnContainer);
+      cardContainer.appendChild(box);
+
+      // Trigger sparkle burst animation on load
+      setTimeout(() => {
+        createSparkles(box);
+      }, 100);
+    }
+
+    // Initialize first step
+    renderStep();
+  </script>
 </body>
 </html>
