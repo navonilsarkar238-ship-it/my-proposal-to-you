@@ -142,14 +142,15 @@
       box-shadow: 0 12px 30px rgba(255, 117, 140, 0.8);
     }
 
-    /* Proposal Step Layouts */
+    /* Proposal Step Layouts (Side by Side) */
     .proposal-buttons {
       display: flex;
       width: 100%;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
+      gap: 25px;
       position: relative;
-      height: 60px;
+      height: 70px;
     }
 
     #yesBtn {
@@ -175,9 +176,8 @@
       background: rgba(255, 255, 255, 0.1);
       color: #fff;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      position: absolute;
-      right: 15px;
-      transition: transform 0.15s ease-out, top 0.15s ease-out, left 0.15s ease-out;
+      position: relative;
+      transition: transform 0.15s ease-out;
       z-index: 5;
     }
   </style>
@@ -243,7 +243,6 @@
       }
     }
 
-    // Continuous background ambient glitter loop
     function initAmbientParticles() {
       if (particles.length < 50 && Math.random() < 0.3) {
         particles.push(new Particle());
@@ -264,7 +263,6 @@
     }
     animateParticles();
 
-    // Burst effect when opening gift or changing steps
     function triggerBurst() {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
@@ -341,13 +339,11 @@
           noBtn.id = 'noBtn';
           noBtn.textContent = 'No 😜';
 
-          // Anti-cheat teleport/dodge logic for the No button
+          // Side-by-side dodging logic: instantly jumps away when hovered or touched
           const moveNoButton = (e) => {
             e.preventDefault();
-            const maxX = 180;
-            const maxY = 120;
-            const randomX = (Math.random() - 0.5) * maxX * 2;
-            const randomY = (Math.random() - 0.5) * maxY * 2;
+            const randomX = (Math.random() - 0.5) * 300;
+            const randomY = (Math.random() - 0.5) * 180;
             noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
           };
 
