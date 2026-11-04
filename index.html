@@ -39,7 +39,7 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 600px;
+      max-width: 650px;
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -113,11 +113,12 @@
     .btn-container {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
       margin-top: 25px;
       position: relative;
-      min-height: 70px;
+      min-height: 80px;
       width: 100%;
+      align-items: center;
     }
 
     .dev-btn {
@@ -142,15 +143,15 @@
       box-shadow: 0 12px 30px rgba(255, 117, 140, 0.8);
     }
 
-    /* Proposal Step Layouts (Side by Side) */
+    /* Proposal Step Layouts (Strictly Side by Side) */
     .proposal-buttons {
       display: flex;
       width: 100%;
       justify-content: center;
       align-items: center;
-      gap: 25px;
+      gap: 40px;
       position: relative;
-      height: 70px;
+      height: 80px;
     }
 
     #yesBtn {
@@ -159,6 +160,7 @@
       box-shadow: 0 0 20px rgba(0, 176, 155, 0.6);
       z-index: 10;
       animation: ultraShine 1.2s infinite alternate;
+      position: relative;
     }
 
     @keyframes ultraShine {
@@ -280,7 +282,7 @@
       { text: "Thank you for giving me your wonderful friendship. 💖" },
       { text: "And thank you for constantly tolerating this absolute idiot every single day! 😜" },
       { text: "So at last... Will you be mine, Aditi? 💍", isProposal: true },
-      { text: "Yay!! Best decision ever! I love you so much, Aditi! 🥰🎉" }
+      { text: "I love you, Aditi! 🥰❤️" }
     ];
 
     let currentStep = 0;
@@ -333,32 +335,3 @@
             currentStep = storyline.length - 1;
             renderStep();
           };
-
-          const noBtn = document.createElement('button');
-          noBtn.className = 'dev-btn';
-          noBtn.id = 'noBtn';
-          noBtn.textContent = 'No 😜';
-
-          // Side-by-side dodging logic: instantly jumps away when hovered or touched
-          const moveNoButton = (e) => {
-            e.preventDefault();
-            const randomX = (Math.random() - 0.5) * 300;
-            const randomY = (Math.random() - 0.5) * 180;
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
-          };
-
-          noBtn.addEventListener('mouseover', moveNoButton);
-          noBtn.addEventListener('touchstart', moveNoButton);
-          noBtn.addEventListener('click', moveNoButton);
-
-          proposalWrapper.appendChild(yesBtn);
-          proposalWrapper.appendChild(noBtn);
-          actionArea.appendChild(proposalWrapper);
-        }
-
-        mainCard.classList.add('active');
-      }, 400);
-    }
-  </script>
-</body>
-</html>
